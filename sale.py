@@ -1,3 +1,4 @@
+import optparse
 import requests
 from bs4 import beautifulSoup 
 import smtplib
@@ -11,7 +12,7 @@ headers={"User-Agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_3)\
 
 
 
-def check_price():
+def check_price(T_price):
 
 	page=requests.get(URL,headers=headers)
 
@@ -29,7 +30,7 @@ def send_mail():
 	server.starttls()
 	server.ehlo()
 
-	server.login("alpharoy14@gmail.com","password")
+	server.login("alpharoy14@gmail.com","password") #add your pass
 
 	subject="price fell down down down"
 	Body =f'check the amazon LINK {URL}'
@@ -44,10 +45,23 @@ def send_mail():
 		)
 	print("Hey Email Has been sent")
 	server.quit()
-while True:
-	check_price()
-	sleep(60*60)
+###sleep(60*60)
 
+def main():
+	parser=optparse.OptionParser("usage: %prog" + " -s <site> -p <price>")
+	parse.add_option('-p',dest="T_price",type='float',help='specify the price')
+	parse.add_option('-s',dest="Site",type='string',help='specify the site')
+	(options,args)=parse.parse_args()
+	if(options.T_price==None):
+		print(parse.usage)
+		exit(0)
+	else:
+		URL=options.Site
+		T_price=options.T_price
+
+	while True:
+		check_price(T_price)
+		sleep(60*60)
 
 
 
