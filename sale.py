@@ -48,7 +48,7 @@ def send_mail():
 ###sleep(60*60)
 
 def main():
-	parser=optparse.OptionParser("usage: %prog" + " -s <site> -p <price>")
+	parse=optparse.OptionParser("usage: %prog" + " -s <site> -p <price>")
 	parse.add_option('-p',dest="T_price",type='float',help='specify the price')
 	parse.add_option('-s',dest="Site",type='string',help='specify the site')
 	(options,args)=parse.parse_args()
