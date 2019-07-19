@@ -1,8 +1,8 @@
-# Amazon-Sale-Alert
+# Amazon-Price-Drop-Alert
 Sends an email when there is a price drop for a specific item 
 
 ## Using 
-Run the program in terminal while specefying the URL and the Price
+Run the program in terminal while specefying the URL(Amazon) and the threshold Price
 
 ```
 python sale.py -s <URL> -p <Price>
